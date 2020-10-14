@@ -1,24 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
 
 function App() {
+  const [showTimePointModal, setShowTimePointModal] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button
+        onClick={() => setShowTimePointModal(true)}
+      >
+        Open Modal
+      </button>
+
+      {!showTimePointModal ? null : (
+        <div
+          className="modal-shade"
+          onClick={() => setShowTimePointModal(false)}
+        ></div>
+      )}
+      {!showTimePointModal ? null : (
+        <div className="modal">
+          <div className="modal-content">
+            <div className="modal-header">
+              <div>Modal Popup</div>    
+            </div>
+            <div>
+              <button
+                onClick={() => setShowTimePointModal(false)}
+              >
+                Close Modal
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
