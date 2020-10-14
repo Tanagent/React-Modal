@@ -2,23 +2,23 @@ import React, { useState } from "react";
 import './App.css';
 
 function App() {
-  const [showTimePointModal, setShowTimePointModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div>
       <button
-        onClick={() => setShowTimePointModal(true)}
+        onClick={() => setShowModal(true)}
       >
         Open Modal
       </button>
 
-      {!showTimePointModal ? null : (
+      {!showModal ? null : (
         <div
           className="modal-shade"
-          onClick={() => setShowTimePointModal(false)}
+          onClick={() => setShowModal(false)}
         ></div>
       )}
-      {!showTimePointModal ? null : (
+      {!showModal ? null : (
         <div className="modal">
           <div className="modal-content">
             <div className="modal-header">
@@ -26,7 +26,7 @@ function App() {
             </div>
             <div>
               <button
-                onClick={() => setShowTimePointModal(false)}
+                onClick={() => setShowModal(false)}
               >
                 Close Modal
               </button>
